@@ -184,16 +184,16 @@
     {
       "position": {
         "x": 246,
-        "y": 50
+        "y": 9.999999999999993
       },
       "size": {
         "width": 80,
-        "height": 40
+        "height": 80
       },
       "shape": "imove-branch",
       "data": {
         "label": "判断",
-        "configSchema": "{\"schema\":{\"type\":\"object\",\"properties\":{\"input_MudoMs\":{\"title\":\"Input\",\"type\":\"string\",\"description\":\"输入框\"}},\"ui:displayType\":\"row\",\"ui:showDescIcon\":true},\"displayType\":\"row\",\"showDescIcon\":true}",
+        "configSchema": "{\"schema\":{\"type\":\"object\",\"ui:displayType\":\"row\",\"ui:showDescIcon\":true,\"properties\":{\"input_MudoMs\":{\"title\":\"Input\",\"type\":\"string\",\"description\":\"输入框\"},\"allBoolean_vUxfDM\":{\"title\":\"Switch\",\"type\":\"boolean\",\"ui:widget\":\"switch\",\"description\":\"开关控制\"}}},\"displayType\":\"row\",\"showDescIcon\":true}",
         "configData": {},
         "dependencies": "{\n  \n}",
         "ports": {
@@ -538,6 +538,24 @@
       },
       "id": "1d174369-929b-4bd5-8841-f271399c4a4f",
       "zIndex": 9
+    },
+    {
+      "shape": "edge",
+      "attrs": {
+        "line": {
+          "strokeWidth": "2px"
+        }
+      },
+      "id": "080f961d-fa8b-4071-83d5-37cb70ee6b07",
+      "source": {
+        "cell": "a6da6684-96c8-4595-bec6-a94122b61e30",
+        "port": "top"
+      },
+      "target": {
+        "cell": "81e87610-c749-4667-8382-00c62be30e2b",
+        "port": "top"
+      },
+      "zIndex": 10
     }
   ]
 }

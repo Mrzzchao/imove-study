@@ -58,6 +58,7 @@ const CodeRun: React.FC<ICodeRunProps> = (props) => {
   const [output, setOutput] = useState({});
 
   useEffect(() => {
+    console.log('CodeRun======')
     // NOTE: listen the event that iMove online exec ends
     const handler = (data: any) => {
       setIsRunning(false);
@@ -70,6 +71,7 @@ const CodeRun: React.FC<ICodeRunProps> = (props) => {
   }, []);
 
   const onClickRun = useCallback(() => {
+    console.log('onClickRun======')
     setIsRunning(true);
     const selectedCelssJson = toSelectedCellsJSON(flowChart);
     const compiledCode = compileForOnline(selectedCelssJson, input);
