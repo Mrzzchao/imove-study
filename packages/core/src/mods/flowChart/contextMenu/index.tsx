@@ -40,9 +40,15 @@ const FlowChartContextMenu: React.FC<IProps> = props => {
 
   useClickAway(() => onClickAway(), menuRef);
 
+  // 监听点击菜单外事件 触发关闭右菜单
   const onClickAway = useCallback(() => flowChart.trigger('graph:hideContextMenu'), [flowChart]);
+  
+  // 执行菜单项
   const onClickMenu = useCallback(({ key }) => {
+    // 获取执行器map
     const handlerMap = Helper.makeMenuHandlerMap(menuConfig);
+
+    // 如果执行器存在，关闭右键菜单，执行
     const handler = handlerMap[key];
     if (handler) {
       onClickAway();
@@ -68,6 +74,7 @@ const FlowChartContextMenu: React.FC<IProps> = props => {
 };
 
 const Helper = {
+  // 将右菜单配置打平，然后生成执行器map
   makeMenuHandlerMap(config: IMenuConfig[]) {
     const queue = config.slice(0);
     const handlerMap: { [key: string]: (flowChart: Graph) => void } = {};
@@ -81,6 +88,8 @@ const Helper = {
     }
     return handlerMap;
   },
+
+  // 循环生成菜单内容
   makeMenuContent(flowChart: Graph, menuConfig: IMenuConfig[]) {
     const loop = (config: IMenuConfig[]) => {
       return config.map(item => {

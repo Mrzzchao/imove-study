@@ -16,7 +16,11 @@ const ToolBar: React.FC<IProps> = (props) => {
   const forceUpdate = useReducer((n) => n + 1, 0)[1];
 
   useEffect(() => {
+
+    // 监听强制更新事件，是为了点击工具栏插件时执行，更新工具栏
     flowChart.on('toolBar:forceUpdate', forceUpdate);
+
+    // 组件卸载时 清除事件监听
     return () => {
       flowChart.off('toolBar:forceUpdate');
     };

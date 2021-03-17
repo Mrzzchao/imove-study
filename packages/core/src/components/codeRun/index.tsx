@@ -57,11 +57,14 @@ const CodeRun: React.FC<ICodeRunProps> = (props) => {
   const [input, setInput] = useState(defaultInput);
   const [output, setOutput] = useState({});
 
+  // 监听代码在线运行结束事件
   useEffect(() => {
-    console.log('CodeRun======')
     // NOTE: listen the event that iMove online exec ends
     const handler = (data: any) => {
+      // 设置运行状态为否
       setIsRunning(false);
+
+      // 设置输出
       setOutput(data.detail || {});
     };
     window.addEventListener('iMoveOnlineExecEnds', handler);
@@ -71,10 +74,14 @@ const CodeRun: React.FC<ICodeRunProps> = (props) => {
   }, []);
 
   const onClickRun = useCallback(() => {
-    console.log('onClickRun======')
     setIsRunning(true);
+    // 获取被选中的元件json串
     const selectedCelssJson = toSelectedCellsJSON(flowChart);
+
+    // 根据元件json编译代码
     const compiledCode = compileForOnline(selectedCelssJson, input);
+
+    // 生成script标签，嵌入编译代码，执行
     executeScript(compiledCode);
   }, [flowChart, input]);
 

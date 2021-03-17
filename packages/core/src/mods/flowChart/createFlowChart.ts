@@ -16,14 +16,19 @@ import MiniMapSimpleNode from '../../components/miniMapSimpleNode';
 );
 
 const registerEvents = (flowChart: Graph): void => {
+  // 节点新增事件
   flowChart.on('node:added', (args) => {
     flowChart.cleanSelection();
     flowChart.select(args.cell);
   });
+
+  // 集合改变事件
   flowChart.on('selection:changed', () => {
     flowChart.trigger('toolBar:forceUpdate');
     flowChart.trigger('settingBar:forceUpdate');
   });
+
+  // 线链接完成事件
   flowChart.on('edge:connected', (args) => {
     const edge = args.edge as Edge;
     const sourceNode = edge.getSourceNode() as Node;
@@ -35,14 +40,19 @@ const registerEvents = (flowChart: Graph): void => {
       }
     }
   });
+
+  // 线选中事件
   flowChart.on('edge:selected', (args) => {
     args.edge.attr('line/stroke', '#feb663');
     args.edge.attr('line/strokeWidth', '3px');
   });
+
+  // 线取消选中事件
   flowChart.on('edge:unselected', (args) => {
     args.edge.attr('line/stroke', '#333');
     args.edge.attr('line/strokeWidth', '2px');
   });
+
   flowChart.on('edge:mouseover', (args) => {
     args.edge.attr('line/stroke', '#feb663');
     args.edge.attr('line/strokeWidth', '3px');
@@ -81,6 +91,13 @@ const registerShortcuts = (flowChart: Graph): void => {
   });
 };
 
+/**
+ * 1. 创建流程图
+ * 2. 注册相关事件
+ * @param container 容器
+ * @param miniMapContainer 小地图容器
+ * @returns 
+ */
 const createFlowChart = (container: HTMLDivElement, miniMapContainer: HTMLDivElement): Graph => {
   const flowChart = new Graph({
     container,
@@ -101,6 +118,7 @@ const createFlowChart = (container: HTMLDivElement, miniMapContainer: HTMLDivEle
       router: {
         name: 'manhattan',
       },
+      // 为了避免有链接空、链接自己的情况出现
       validateConnection({ sourceView, targetView, sourceMagnet, targetMagnet }) {
         if (!sourceMagnet) {
           return false;
@@ -176,8 +194,14 @@ const createFlowChart = (container: HTMLDivElement, miniMapContainer: HTMLDivEle
       modifiers: ['ctrl', 'meta'],
     },
   });
+
+  // 注册事件，包括点、边、空白区相关的
   registerEvents(flowChart);
+
+  // 注册快捷键
   registerShortcuts(flowChart);
+
+  // 注册事件触发的节点、边缓存
   registerServerStorage(flowChart);
   return flowChart;
 };

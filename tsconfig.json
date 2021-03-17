@@ -9,6 +9,7 @@
     "strict": true,
     "resolveJsonModule": true,
     "experimentalDecorators": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "sourceMap": true
   }
 }

@@ -42,14 +42,21 @@ const FlowChart: React.FC<IProps> = (props) => {
 
   useEffect(() => {
     if (graphRef.current && miniMapRef.current) {
+      // 生成流程图
       const flowChart = createFlowChart(graphRef.current, miniMapRef.current);
+
+      // 回调 生成流程图完成后 传给上层 供侧边栏等渲染
       onReady(flowChart);
+
+      // 拉取流程图数据 渲染出节点和边
       fetchData(flowChart);
+
+      // 设置生成好的流程图组件
       setFlowChart(flowChart);
     }
   }, []);
 
-  // resize flowChart's size when window size changes
+  // 当窗口变化时，重置流程图大小
   useEffect(() => {
     const handler = () => {
       requestAnimationFrame(() => {
@@ -66,16 +73,21 @@ const FlowChart: React.FC<IProps> = (props) => {
     };
   }, [flowChart, wrapperRef]);
 
-  // NOTE: listen toggling context menu event
+  // 注册右键菜单事件
   useEffect(() => {
     const showHandler = (info: IMenuInfo) => {
+      // 禁止滚动
       flowChart?.lockScroller();
+
+      // 设置右键菜单
       setContextMenuInfo({ ...info, visible: true });
     };
+
     const hideHandler = () => {
       flowChart?.unlockScroller();
       setContextMenuInfo({ ...contextMenuInfo, visible: false });
     };
+
     if (flowChart) {
       flowChart.on('graph:showContextMenu', showHandler);
       flowChart.on('graph:hideContextMenu', hideHandler);
@@ -90,9 +102,13 @@ const FlowChart: React.FC<IProps> = (props) => {
 
   const fetchData = (flowChart: Graph) => {
     const { projectId } = parseQuery();
+
+    // 通过项目id拉取流程图配置dsl
     queryGraph(projectId as string)
       .then((res) => {
         const { data: dsl } = res;
+
+        // https://x6.antv.vision/zh/docs/api/graph/model/#fromjson
         flowChart.fromJSON(dsl);
       })
       .catch((error) => {
@@ -104,6 +120,7 @@ const FlowChart: React.FC<IProps> = (props) => {
     <div className={styles.container} ref={wrapperRef}>
       <div className={styles.flowChart} ref={graphRef} />
       <div className={styles.miniMap} ref={miniMapRef} />
+
       {flowChart && <CodeRunModal flowChart={flowChart}/>}
       {flowChart && <CodeEditorModal flowChart={flowChart}/>}
       {flowChart && <FlowChartContextMenu {...contextMenuInfo} flowChart={flowChart} />}

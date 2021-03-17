@@ -21,7 +21,10 @@ export const getSelectedEdges = (flowChart: Graph): Cell[] => {
 };
 
 export const toSelectedCellsJSON = (flowChart: Graph): {cells: Cell.Properties[]} => {
+  // https://x6.antv.vision/zh/docs/api/graph/model/#tojson
   const json = flowChart.toJSON();
+
+  // 获取选中的节点/边
   const selectedCells = flowChart.getSelectedCells();
   return {
     cells: json.cells.filter(cell => selectedCells.find(o => o.id === cell.id))

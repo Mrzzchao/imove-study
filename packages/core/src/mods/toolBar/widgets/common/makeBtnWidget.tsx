@@ -18,6 +18,14 @@ interface IBtnWidgetProps {
   flowChart: Graph;
 }
 
+/**
+ * 根据配置生成插件按钮
+ * 1. 禁用和选中方法逻辑处理
+ * 2. 点击事件逻辑处理，并触发强制更新
+ * 3. 按配置获取图标、提示等
+ * @param options 插件配置
+ * @returns 
+ */
 const makeBtnWidget = (options: IOptions) => {
   const Widget: React.FC<IBtnWidgetProps> = (props) => {
     const { flowChart } = props;

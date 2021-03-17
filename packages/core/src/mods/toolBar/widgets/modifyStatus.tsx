@@ -39,9 +39,12 @@ const ModifyStatus: React.FC<IProps> = (props) => {
   const [status, setStatus] = useState<Status>(Status.pending);
 
   useEffect(() => {
+    // 监听编辑器正在修改事件
     flowChart.on('graph:change:modify', () => {
       setStatus(Status.syncing);
     });
+
+    // 监听编辑器修改完成事件
     flowChart.on('graph:modified', (res: any) => {
       const { success } = res;
       if (success) {
@@ -50,12 +53,15 @@ const ModifyStatus: React.FC<IProps> = (props) => {
         setStatus(Status.failed);
       }
     });
+
+    // 组件卸载时 清除事件监听
     return () => {
       flowChart.off('graph:change:modify');
       flowChart.off('graph:modified');
     };
   }, []);
 
+    debugger;
   const { color, text } = statusMap[status];
   return status === Status.pending ? null : (
     <div className={styles.modifyStatusContainer}>

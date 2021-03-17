@@ -28,13 +28,19 @@ const CodeEditModal: React.FC<IProps> = (props) => {
 
     const cell = flowChart.getSelectedCells()[0];
     const { code: oldCode, dependencies } = cell.getData();
+
+    // 如果代码未变化直接返回
     if(code === oldCode) {
       return;
     }
 
     cell.setData({ code });
     message.success('代码保存成功', 1);
+    
+    // 解析代码依赖包，import xxx
     const excludeDeps = safeParse(dependencies);
+
+    // 分析是否包含新的import依赖，如果有自动更新依赖json
     analyzeDeps(code, Object.keys(excludeDeps)).then((deps): void => {
       if (Object.keys(deps).length > 0) {
         Modal.info({
@@ -65,7 +71,7 @@ const CodeEditModal: React.FC<IProps> = (props) => {
     });
   };
 
-  // life
+  // 绑定编辑代码的事件
   useEffect(() => {
     const handler = () => setVisible(true);
     flowChart.on('graph:editCode', handler);
@@ -73,6 +79,8 @@ const CodeEditModal: React.FC<IProps> = (props) => {
       flowChart.off('graph:editCode', handler);
     };
   }, []);
+
+  // 从元件中获取代码
   useEffect(() => {
     if (visible) {
       const cell = flowChart.getSelectedCells()[0];

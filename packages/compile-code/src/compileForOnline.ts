@@ -74,17 +74,27 @@ const getNextNode = (curNode: Cell.Properties, dsl: DSL) => {
   const nodes = dsl.cells.filter(cell => cell.shape !== 'edge');
   const edges = dsl.cells.filter(cell => cell.shape === 'edge');
 
+  // 找到以当前节点为起始链接的边
   const foundEdge = edges.find(edge => edge.source.cell === curNode.id);
   if(foundEdge) {
+    // 找到链接的下一个节点
     return nodes.find(node => node.id === foundEdge.target.cell);
   }
 };
 
+// 编译简化DSL成code
 const compileSimplifiedDSL = (dsl: DSL): string => {
   const simplyfiedDSL = JSON.stringify(simplifyDSL(dsl), null, 2);
   return `const dsl = ${simplyfiedDSL};`;
 };
 
+/**
+ * 1. 通过正则替换，将import引入的包替换成在线的https://jspm.dev/的版本
+ * 2. 将export default 的导出代码替换成 return
+ * 3. 将节点代码包裹一层async await逻辑，返回（为了解决所有异步情况）
+ * @param node 节点
+ * @returns 
+ */
 const compileNodeFn = (node: Cell.Properties): string => {
   const {data: {label, code}} = node;
   const newCode = code.replace(importRegex, (match: string, p1: string, p2: string, p3: string) => {
@@ -97,6 +107,13 @@ const compileNodeFn = (node: Cell.Properties): string => {
   }())`;
 };
 
+/**
+ * 1. 获取所有节点
+ * 2. 循环编译节点代码
+ * 3. 将编辑的节点代码组装进nodeFns map里
+ * @param dsl dsl配置
+ * @returns 
+ */
 const compileNodeFnsMap = (dsl: DSL): string => {
   const nodes = dsl.cells.filter(cell => cell.shape !== 'edge');
   const kvs = nodes.map(node => {
@@ -107,6 +124,15 @@ const compileNodeFnsMap = (dsl: DSL): string => {
   return `const nodeFns = {\n  ${kvs.join(',\n  ')}\n}`;
 };
 
+/**
+ * 1. 找到起始节点。如果没有用虚拟起始节点
+ * 2. 获取起始节点的下一个节点
+ * 3. 通过调用编译简单DSL、编译节点代码方法，生成区块代码，再通过预设的插槽，正则替换掉
+ * 4. 正则替换掉触发事件代码
+ * @param dsl DSL配置
+ * @param mockInput mock 数据
+ * @returns 
+ */
 const compile = (dsl: DSL, mockInput: any): string => {
   const startNode = findStartNode(dsl);
   const mockNode = getNextNode(startNode, dsl);

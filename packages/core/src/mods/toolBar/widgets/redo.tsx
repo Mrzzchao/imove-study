@@ -9,7 +9,7 @@ interface IProps {
   flowChart: Graph;
 }
 
-const Save: React.FC<IProps> = makeBtnWidget({
+const Redo: React.FC<IProps> = makeBtnWidget({
   tooltip: '重做',
   handler: shortcuts.redo.handler,
   getIcon() {
@@ -20,4 +20,4 @@ const Save: React.FC<IProps> = makeBtnWidget({
   },
 });
 
-export default Save;
+export default Redo;
