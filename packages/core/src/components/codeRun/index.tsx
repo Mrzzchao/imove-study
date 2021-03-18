@@ -13,7 +13,11 @@ import InputPanel from './inputPanel';
 import JsonView from 'react-json-view';
 import { executeScript } from '../../utils';
 import { PlayCircleFilled, LoadingOutlined } from '@ant-design/icons';
-import { compileForOnline } from '@imove/compile-code';
+// import { compileForOnline } from '@imove/compile-code';
+
+// debug
+import { compileForOnline } from '../../../../../packages/compile-code/src/index';
+
 import { toSelectedCellsJSON } from '../../utils/flowChartUtils';
 
 // FIXME: https://github.com/tomkp/react-split-pane/issues/541
@@ -79,6 +83,7 @@ const CodeRun: React.FC<ICodeRunProps> = (props) => {
     const selectedCelssJson = toSelectedCellsJSON(flowChart);
 
     // 根据元件json编译代码
+    debugger;
     const compiledCode = compileForOnline(selectedCelssJson, input);
 
     // 生成script标签，嵌入编译代码，执行

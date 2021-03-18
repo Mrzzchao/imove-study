@@ -80,6 +80,7 @@ const getNextNode = (curNode: Cell.Properties, dsl: DSL) => {
     // 找到链接的下一个节点
     return nodes.find(node => node.id === foundEdge.target.cell);
   }
+  return curNode
 };
 
 // 编译简化DSL成code
@@ -134,6 +135,7 @@ const compileNodeFnsMap = (dsl: DSL): string => {
  * @returns 
  */
 const compile = (dsl: DSL, mockInput: any): string => {
+  debugger
   const startNode = findStartNode(dsl);
   const mockNode = getNextNode(startNode, dsl);
   return makeCode(mockNode, mockInput)

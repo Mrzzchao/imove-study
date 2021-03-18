@@ -20,6 +20,12 @@ interface IOutput {
   'logic.js': string;
 }
 
+/**
+ * 编译代码
+ * @param dsl 流程图配置
+ * @param plugins 插件
+ * @returns 返回字符串代码对象
+ */
 const compile = (dsl: DSL, plugins = []): IOutput => {
   const output: IOutput = {
     'nodeFns': extractNodeFns(dsl),

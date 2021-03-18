@@ -24,8 +24,14 @@ const ExportModal: React.FC<IExportModalProps> = (props) => {
   };
   const onExportCode = () => {
     const zip = new JSZip();
+
+    // 获取流程图dsl配置
     const dsl = flowChart.toJSON();
+
+    // 生成编译后的代码对象
     const output = compileForProject(dsl);
+
+    // 导出成文件夹
     Helper.recursiveZip(zip, output);
     zip.generateAsync({ type: 'blob' }).then((blob) => {
       DataUri.downloadBlob(blob, 'logic.zip');

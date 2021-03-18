@@ -101,7 +101,6 @@ const PanelContent: React.FC<IPanelContentProps> = (props) => {
         const rowIdx = Math.floor(index / 3);
         const colIdx = index % 3;
         const { top } = previewCellSchemaMap[cell] || {};
-        debugger
         // 渲染节点
         graph.addNode({
           shape: cell,

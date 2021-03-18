@@ -61,7 +61,6 @@ const ModifyStatus: React.FC<IProps> = (props) => {
     };
   }, []);
 
-    debugger;
   const { color, text } = statusMap[status];
   return status === Status.pending ? null : (
     <div className={styles.modifyStatusContainer}>

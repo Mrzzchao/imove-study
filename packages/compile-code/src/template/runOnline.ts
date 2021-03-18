@@ -1,11 +1,16 @@
 import logic from './logic';
 import context from './context';
 
+/**
+ * 生成可运行代码
+ * @param mockNode 需要生成的节点
+ * @param mockInput 模拟输入
+ * @returns 
+ */
 const makeCode = (mockNode: any, mockInput: any) => `
 (async function run() {
   // Context
   ${context.replace(/export\s+default/, '')}
-
   // Logic
   ${logic
     .split('\n')

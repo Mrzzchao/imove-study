@@ -16,7 +16,6 @@ interface IProps {
 }
 
 const Core: React.FC<IProps> = (props) => {
-  debugger
   const { onSave } = props;
   const [flowChart, setFlowChart] = useState<Graph>();
   const onFlowChartReady = (flowChart: Graph): void => setFlowChart(flowChart);

@@ -2,101 +2,11 @@
   "default": [
     {
       "position": {
-        "x": 680,
-        "y": 170
+        "x": 250,
+        "y": -70
       },
       "size": {
-        "width": 80,
-        "height": 40
-      },
-      "shape": "imove-behavior",
-      "data": {
-        "label": "处理",
-        "configSchema": "{\n  \"schema\": {\n    \"type\": \"object\",\n    \"properties\": {\n      \"textarea_FyaArd\": {\n        \"title\": \"Textarea\",\n        \"type\": \"string\",\n        \"format\": \"textarea\",\n        \"description\": \"文本编辑框\"\n      },\n      \"select_jrGW8n\": {\n        \"title\": \"Select\",\n        \"type\": \"string\",\n        \"enum\": [\n          \"a\",\n          \"b\",\n          \"c\"\n        ],\n        \"enumNames\": [\n          \"早\",\n          \"中\",\n          \"晚\"\n        ],\n        \"description\": \"下拉单选\"\n      }\n    },\n    \"ui:displayType\": \"row\",\n    \"ui:showDescIcon\": true\n  },\n  \"displayType\": \"row\",\n  \"showDescIcon\": true\n}",
-        "configData": {},
-        "dependencies": "{\n  \n}",
-        "code": "export default async function(ctx) {\n  console.log('1212')\n}"
-      },
-      "ports": {
-        "groups": {
-          "top": {
-            "position": "top",
-            "attrs": {
-              "circle": {
-                "r": 3,
-                "magnet": true,
-                "stroke": "#666",
-                "strokeWidth": 1,
-                "fill": "#fff"
-              }
-            }
-          },
-          "right": {
-            "position": "right",
-            "attrs": {
-              "circle": {
-                "r": 3,
-                "magnet": true,
-                "stroke": "#666",
-                "strokeWidth": 1,
-                "fill": "#fff"
-              }
-            }
-          },
-          "bottom": {
-            "position": "bottom",
-            "attrs": {
-              "circle": {
-                "r": 3,
-                "magnet": true,
-                "stroke": "#666",
-                "strokeWidth": 1,
-                "fill": "#fff"
-              }
-            }
-          },
-          "left": {
-            "position": "left",
-            "attrs": {
-              "circle": {
-                "r": 3,
-                "magnet": true,
-                "stroke": "#666",
-                "strokeWidth": 1,
-                "fill": "#fff"
-              }
-            }
-          }
-        },
-        "items": [
-          {
-            "id": "top",
-            "group": "top"
-          },
-          {
-            "id": "right",
-            "group": "right"
-          },
-          {
-            "id": "bottom",
-            "group": "bottom"
-          },
-          {
-            "id": "left",
-            "group": "left"
-          }
-        ]
-      },
-      "id": "81e87610-c749-4667-8382-00c62be30e2b",
-      "zIndex": 1
-    },
-    {
-      "position": {
-        "x": 56,
-        "y": 30
-      },
-      "size": {
-        "width": 80,
+        "width": 100,
         "height": 80
       },
       "shape": "imove-start",
@@ -183,40 +93,27 @@
     },
     {
       "position": {
-        "x": 390,
-        "y": 30
+        "x": 260,
+        "y": 100
       },
       "size": {
         "width": 80,
-        "height": 80
+        "height": 40
       },
       "attrs": {
-        "body": {
-          "fill": "#caca00"
-        },
         "label": {
-          "refY2": 0,
-          "textVerticalAlign": "middle",
-          "align": {
-            "vertical": "center"
-          }
+          "text": "打印"
         }
       },
-      "shape": "imove-branch",
+      "shape": "imove-behavior",
       "data": {
-        "label": "判断",
-        "configSchema": "{\"schema\":{\"type\":\"object\",\"ui:displayType\":\"row\",\"ui:showDescIcon\":true,\"properties\":{\"input_MudoMs\":{\"title\":\"Input\",\"type\":\"string\",\"description\":\"输入框\"},\"allBoolean_vUxfDM\":{\"title\":\"Switch\",\"type\":\"boolean\",\"ui:widget\":\"switch\",\"description\":\"开关控制\"}}},\"displayType\":\"row\",\"showDescIcon\":true}",
-        "configData": {},
-        "dependencies": "{\n  \n}",
-        "ports": {
-          "right": {
-            "condition": "true"
-          },
-          "bottom": {
-            "condition": "false"
-          }
+        "label": "打印",
+        "configSchema": "{\"schema\":{\"type\":\"object\",\"ui:displayType\":\"row\",\"ui:showDescIcon\":true,\"properties\":{\"input_key\":{\"title\":\"Input\",\"type\":\"string\",\"description\":\"输入框\",\"default\":\"2\",\"ui:options\":{}}}},\"displayType\":\"row\",\"showDescIcon\":true}",
+        "configData": {
+          "input_key": "1"
         },
-        "code": "export default async function(ctx) {\n  return true;\n}"
+        "dependencies": "{\n  \n}",
+        "code": "export default async function(ctx) {\n  console.log('test')\n  console.log('ctx', JSON.stringify(ctx))\n  return {\n      a: 1,\n      b: 2\n  }\n}"
       },
       "ports": {
         "groups": {
@@ -233,7 +130,6 @@
             }
           },
           "right": {
-            "zIndex": 999999999,
             "position": "right",
             "attrs": {
               "circle": {
@@ -243,13 +139,9 @@
                 "strokeWidth": 1,
                 "fill": "#fff"
               }
-            },
-            "label": {
-              "position": "right"
             }
           },
           "bottom": {
-            "zIndex": 999999999,
             "position": "bottom",
             "attrs": {
               "circle": {
@@ -259,9 +151,6 @@
                 "strokeWidth": 1,
                 "fill": "#fff"
               }
-            },
-            "label": {
-              "position": "bottom"
             }
           },
           "left": {
@@ -284,21 +173,11 @@
           },
           {
             "id": "right",
-            "group": "right",
-            "attrs": {
-              "text": {
-                "text": ""
-              }
-            }
+            "group": "right"
           },
           {
             "id": "bottom",
-            "group": "bottom",
-            "attrs": {
-              "text": {
-                "text": "否"
-              }
-            }
+            "group": "bottom"
           },
           {
             "id": "left",
@@ -306,77 +185,58 @@
           }
         ]
       },
-      "id": "a6da6684-96c8-4595-bec6-a94122b61e30",
+      "id": "38022fea-80b9-4678-83ce-532a804a71c6",
       "zIndex": 3
     },
     {
       "shape": "edge",
       "attrs": {
         "line": {
-          "stroke": "#feb663",
-          "strokeWidth": "3px"
+          "strokeWidth": "2px"
         }
       },
-      "id": "cbcbd0ea-4a2a-4d2a-8135-7b4b7d7ec50d",
-      "zIndex": 4,
+      "id": "d3ebb525-a5ee-4263-81aa-f044c38a629a",
       "source": {
         "cell": "de868d18-9ec0-4dac-abbe-5cb9e3c20e2f",
-        "port": "right"
+        "port": "bottom"
       },
       "target": {
-        "cell": "a6da6684-96c8-4595-bec6-a94122b61e30",
-        "port": "left"
-      }
-    },
-    {
-      "shape": "edge",
-      "attrs": {
-        "line": {
-          "stroke": "#feb663",
-          "strokeWidth": "3px"
-        }
+        "cell": "38022fea-80b9-4678-83ce-532a804a71c6",
+        "port": "top"
       },
-      "id": "ea10b718-1c66-4a3d-b29c-b0b20e6bba11",
-      "zIndex": 5,
-      "labels": [
-        {
-          "attrs": {
-            "label": {
-              "text": "是"
-            }
-          }
-        }
-      ],
-      "source": {
-        "cell": "a6da6684-96c8-4595-bec6-a94122b61e30",
-        "port": "right"
-      },
-      "target": {
-        "cell": "81e87610-c749-4667-8382-00c62be30e2b",
-        "port": "left"
-      }
+      "zIndex": 4
     },
     {
       "position": {
-        "x": 500,
-        "y": 450
+        "x": 235,
+        "y": 252
       },
       "size": {
-        "width": 100,
+        "width": 130,
         "height": 40
       },
       "attrs": {
         "label": {
-          "text": "在线运行测试"
+          "text": "打印getPipe",
+          "refY": 0.5,
+          "refY2": 0,
+          "textVerticalAlign": "middle",
+          "align": {
+            "vertical": "center",
+            "horizontal": "center"
+          },
+          "refX": 0.5,
+          "refX2": 0,
+          "textAnchor": "middle"
         }
       },
       "shape": "imove-behavior",
       "data": {
-        "label": "在线运行测试",
-        "configSchema": "{\n  \"schema\": {\n    \"type\": \"object\",\n    \"properties\": {\n      \"input_CCw1sQ\": {\n        \"title\": \"Input\",\n        \"type\": \"string\",\n        \"description\": \"输入框\"\n      },\n      \"allBoolean_fREQq-\": {\n        \"title\": \"Switch\",\n        \"type\": \"boolean\",\n        \"ui:widget\": \"switch\",\n        \"description\": \"开关控制\"\n      }\n    },\n    \"ui:displayType\": \"row\",\n    \"ui:showDescIcon\": true\n  },\n  \"displayType\": \"row\",\n  \"showDescIcon\": true\n}",
+        "label": "打印getPipe",
+        "configSchema": "{\n  \n}",
         "configData": {},
-        "dependencies": "{\n  \"lodash.get\": \"4.4.2\",\n  \"lodash.merge\": \"4.6.2\"\n}",
-        "code": "import fpget from 'lodash.get';\nimport merge from 'lodash.merge';\n\nexport default async function(ctx) {\n  const obj = {a: {b: 'hello imove~'}};\n  console.log(fpget(obj, 'a.b'));\n  return ctx.getPipe();\n}"
+        "dependencies": "{\n  \n}",
+        "code": "export default async function(ctx) {\n    const pipe = ctx.getPipe()\n  console.log('pipe', pipe)\n\n  return pipe\n}"
       },
       "ports": {
         "groups": {
@@ -448,8 +308,8 @@
           }
         ]
       },
-      "id": "1d174369-929b-4bd5-8841-f271399c4a4f",
-      "zIndex": 9
+      "id": "6f8ae346-2fcc-411b-9170-da8dc90a0b07",
+      "zIndex": 6
     },
     {
       "shape": "edge",
@@ -458,111 +318,21 @@
           "strokeWidth": "2px"
         }
       },
-      "id": "080f961d-fa8b-4071-83d5-37cb70ee6b07",
+      "id": "62c5441f-9b4c-4e5f-8389-13131afdee04",
       "source": {
-        "cell": "a6da6684-96c8-4595-bec6-a94122b61e30",
-        "port": "top"
+        "cell": "38022fea-80b9-4678-83ce-532a804a71c6",
+        "port": "bottom"
       },
       "target": {
-        "cell": "81e87610-c749-4667-8382-00c62be30e2b",
+        "cell": "6f8ae346-2fcc-411b-9170-da8dc90a0b07",
         "port": "top"
       },
-      "zIndex": 10
+      "zIndex": 7
     },
     {
       "position": {
-        "x": 131,
-        "y": 200
-      },
-      "size": {
-        "width": 70,
-        "height": 40
-      },
-      "shape": "imove-behavior",
-      "data": {
-        "label": "处理",
-        "configSchema": "{\n  \n}",
-        "configData": {},
-        "dependencies": "{\n  \n}",
-        "code": "export default async function(ctx) {\n  \n}"
-      },
-      "ports": {
-        "groups": {
-          "top": {
-            "position": "top",
-            "attrs": {
-              "circle": {
-                "r": 3,
-                "magnet": true,
-                "stroke": "#666",
-                "strokeWidth": 1,
-                "fill": "#fff"
-              }
-            }
-          },
-          "right": {
-            "position": "right",
-            "attrs": {
-              "circle": {
-                "r": 3,
-                "magnet": true,
-                "stroke": "#666",
-                "strokeWidth": 1,
-                "fill": "#fff"
-              }
-            }
-          },
-          "bottom": {
-            "position": "bottom",
-            "attrs": {
-              "circle": {
-                "r": 3,
-                "magnet": true,
-                "stroke": "#666",
-                "strokeWidth": 1,
-                "fill": "#fff"
-              }
-            }
-          },
-          "left": {
-            "position": "left",
-            "attrs": {
-              "circle": {
-                "r": 3,
-                "magnet": true,
-                "stroke": "#666",
-                "strokeWidth": 1,
-                "fill": "#fff"
-              }
-            }
-          }
-        },
-        "items": [
-          {
-            "id": "top",
-            "group": "top"
-          },
-          {
-            "id": "right",
-            "group": "right"
-          },
-          {
-            "id": "bottom",
-            "group": "bottom"
-          },
-          {
-            "id": "left",
-            "group": "left"
-          }
-        ]
-      },
-      "id": "70f0ff06-c4e6-4e6c-854f-e30131eb0fb5",
-      "zIndex": 11
-    },
-    {
-      "position": {
-        "x": 250,
-        "y": 460
+        "x": 380,
+        "y": -270
       },
       "size": {
         "width": 80,
@@ -646,135 +416,8 @@
           }
         ]
       },
-      "id": "bea18b87-ef43-4637-9672-305cfe30241f",
-      "zIndex": 12
-    },
-    {
-      "shape": "edge",
-      "attrs": {
-        "line": {
-          "strokeWidth": "2px"
-        }
-      },
-      "id": "2e0be65c-8d1f-4f3c-9382-2911742360e4",
-      "source": {
-        "cell": "70f0ff06-c4e6-4e6c-854f-e30131eb0fb5",
-        "port": "right"
-      },
-      "target": {
-        "cell": "81e87610-c749-4667-8382-00c62be30e2b",
-        "port": "left"
-      },
-      "zIndex": 13
-    },
-    {
-      "shape": "edge",
-      "attrs": {
-        "line": {
-          "strokeWidth": "2px"
-        }
-      },
-      "id": "f948a23b-ab67-40d5-ad9a-92263224c7c9",
-      "source": {
-        "cell": "bea18b87-ef43-4637-9672-305cfe30241f",
-        "port": "left"
-      },
-      "target": {
-        "cell": "1d174369-929b-4bd5-8841-f271399c4a4f",
-        "port": "right"
-      },
-      "zIndex": 14
-    },
-    {
-      "position": {
-        "x": 146,
-        "y": 279
-      },
-      "size": {
-        "width": 80,
-        "height": 80
-      },
-      "shape": "imove-start",
-      "data": {
-        "label": "开始",
-        "configSchema": "{\n  \n}",
-        "configData": {},
-        "trigger": "start",
-        "dependencies": "{\n  \n}",
-        "code": "export default async function(ctx) {\n  \n}"
-      },
-      "ports": {
-        "groups": {
-          "top": {
-            "position": "top",
-            "attrs": {
-              "circle": {
-                "r": 3,
-                "magnet": true,
-                "stroke": "#666",
-                "strokeWidth": 1,
-                "fill": "#fff"
-              }
-            }
-          },
-          "right": {
-            "position": "right",
-            "attrs": {
-              "circle": {
-                "r": 3,
-                "magnet": true,
-                "stroke": "#666",
-                "strokeWidth": 1,
-                "fill": "#fff"
-              }
-            }
-          },
-          "bottom": {
-            "position": "bottom",
-            "attrs": {
-              "circle": {
-                "r": 3,
-                "magnet": true,
-                "stroke": "#666",
-                "strokeWidth": 1,
-                "fill": "#fff"
-              }
-            }
-          },
-          "left": {
-            "position": "left",
-            "attrs": {
-              "circle": {
-                "r": 3,
-                "magnet": true,
-                "stroke": "#666",
-                "strokeWidth": 1,
-                "fill": "#fff"
-              }
-            }
-          }
-        },
-        "items": [
-          {
-            "id": "top",
-            "group": "top"
-          },
-          {
-            "id": "right",
-            "group": "right"
-          },
-          {
-            "id": "bottom",
-            "group": "bottom"
-          },
-          {
-            "id": "left",
-            "group": "left"
-          }
-        ]
-      },
-      "id": "b62b6a52-ba77-4411-be4f-da2eb5206f20",
-      "zIndex": 0
+      "id": "60c6d053-7f55-4ce7-a382-7d564a5219d2",
+      "zIndex": 3
     }
   ]
 }

@@ -8,6 +8,7 @@ interface INodesFns {
   [fileName: string]: string;
 }
 
+// import引入节点文件，再export出去，生成入口文件index.js
 const genEntryFile = (nodeIds: string[]): string => {
   const imports: string[] = [];
   const funcMaps: string[] = [];
@@ -24,6 +25,7 @@ const genEntryFile = (nodeIds: string[]): string => {
   return fileContent;
 };
 
+// 按节点id作为文件命，生成节点文件对象
 const genNodeFns = (dsl: DSL): INodesFns => {
   const nodeFns: INodesFns = {};
   const { cells = [] } = dsl;
@@ -41,6 +43,7 @@ const genNodeFns = (dsl: DSL): INodesFns => {
   return nodeFns;
 };
 
+// 生成节点文件集合
 const extract = (dsl: DSL): INodesFns => {
   const nodeFns = genNodeFns(dsl);
   const nodeIds = Object.keys(nodeFns).map(fileName => fileName.slice(0, -3));
