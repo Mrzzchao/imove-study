@@ -23,10 +23,15 @@ const extractDep = (dsl) => {
 };
 
 const setup = async (dsl, projectRootPath) => {
+  // 拿到项目package.json
   const pkgPath = path.join(projectRootPath, './package.json');
   const pkgFile = await fs.readFile(pkgPath);
   const pkgJson = JSON.parse(pkgFile);
+
+  // 拿到流程图依赖
   const dslDependencies = extractDep(dsl);
+
+  // 注入合并依赖
   if (!pkgJson.dependencies) {
     pkgJson.dependencies = dslDependencies;
   } else {
@@ -37,6 +42,8 @@ const setup = async (dsl, projectRootPath) => {
       pkgJson.dependencies[key] = builtinDependencies[key];
     });
   }
+
+  // 写入文件
   await fs.writeFile(pkgPath, JSON.stringify(pkgJson, null, 2));
 };
 
