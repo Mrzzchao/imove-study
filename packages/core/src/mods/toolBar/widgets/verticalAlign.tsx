@@ -78,6 +78,7 @@ const VerticalAlign: React.FC<IProps> = makeDropdownWidget({
     if (nodes.length > 0) {
       alignType = safeGet(nodes, '0.attrs.label.align.vertical', 'center');
     }
+    debugger
     return ALIGN_MAP[alignType].icon;
   },
   getOverlay(flowChart: Graph, onChange: (data: any) => void) {

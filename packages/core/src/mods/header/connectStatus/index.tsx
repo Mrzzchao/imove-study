@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
-import 'antd/es/tag/style';
-import 'antd/es/modal/style';
-import 'antd/es/message/style';
+// import 'antd/es/tag/style';
+// import 'antd/es/modal/style';
+// import 'antd/es/message/style';
 import styles from './index.module.less';
 
 import { Graph } from '@antv/x6';

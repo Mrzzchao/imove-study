@@ -1,5 +1,5 @@
 import * as React from 'react';
-import IMove from '../../../packages/core/dist/core.esm.js';
+// import IMove from '../../../packages/core/dist/core.esm.js';
 import IMoveDev from '../../../packages/core/src/index';
 
 

@@ -418,6 +418,508 @@
       },
       "id": "60c6d053-7f55-4ce7-a382-7d564a5219d2",
       "zIndex": 3
+    },
+    {
+      "position": {
+        "x": 410,
+        "y": 100
+      },
+      "size": {
+        "width": 80,
+        "height": 40
+      },
+      "shape": "imove-branch",
+      "data": {
+        "label": "判断",
+        "configSchema": "{\n  \n}",
+        "configData": {},
+        "dependencies": "{\n  \n}",
+        "ports": {
+          "right": {
+            "condition": "true"
+          },
+          "bottom": {
+            "condition": "false"
+          }
+        },
+        "code": "export default async function(ctx) {\n  return true;\n}"
+      },
+      "ports": {
+        "groups": {
+          "top": {
+            "position": "top",
+            "attrs": {
+              "circle": {
+                "r": 3,
+                "magnet": true,
+                "stroke": "#666",
+                "strokeWidth": 1,
+                "fill": "#fff"
+              }
+            }
+          },
+          "right": {
+            "zIndex": 999999999,
+            "position": "right",
+            "attrs": {
+              "circle": {
+                "r": 3,
+                "magnet": true,
+                "stroke": "#666",
+                "strokeWidth": 1,
+                "fill": "#fff"
+              }
+            },
+            "label": {
+              "position": "right"
+            }
+          },
+          "bottom": {
+            "zIndex": 999999999,
+            "position": "bottom",
+            "attrs": {
+              "circle": {
+                "r": 3,
+                "magnet": true,
+                "stroke": "#666",
+                "strokeWidth": 1,
+                "fill": "#fff"
+              }
+            },
+            "label": {
+              "position": "bottom"
+            }
+          },
+          "left": {
+            "position": "left",
+            "attrs": {
+              "circle": {
+                "r": 3,
+                "magnet": true,
+                "stroke": "#666",
+                "strokeWidth": 1,
+                "fill": "#fff"
+              }
+            }
+          }
+        },
+        "items": [
+          {
+            "id": "top",
+            "group": "top"
+          },
+          {
+            "id": "right",
+            "group": "right",
+            "attrs": {
+              "text": {
+                "text": "是"
+              }
+            }
+          },
+          {
+            "id": "bottom",
+            "group": "bottom",
+            "attrs": {
+              "text": {
+                "text": "否"
+              }
+            }
+          },
+          {
+            "id": "left",
+            "group": "left"
+          }
+        ]
+      },
+      "id": "709c4ac3-5834-4985-89c7-0815a0355a20",
+      "zIndex": 8
+    },
+    {
+      "position": {
+        "x": 480,
+        "y": 270
+      },
+      "size": {
+        "width": 80,
+        "height": 40
+      },
+      "shape": "imove-branch",
+      "data": {
+        "label": "判断",
+        "configSchema": "{\n  \n}",
+        "configData": {},
+        "dependencies": "{\n  \n}",
+        "ports": {
+          "right": {
+            "condition": "true"
+          },
+          "bottom": {
+            "condition": "false"
+          }
+        },
+        "code": "export default async function(ctx) {\n  return true;\n}"
+      },
+      "ports": {
+        "groups": {
+          "top": {
+            "position": "top",
+            "attrs": {
+              "circle": {
+                "r": 3,
+                "magnet": true,
+                "stroke": "#666",
+                "strokeWidth": 1,
+                "fill": "#fff"
+              }
+            }
+          },
+          "right": {
+            "zIndex": 999999999,
+            "position": "right",
+            "attrs": {
+              "circle": {
+                "r": 3,
+                "magnet": true,
+                "stroke": "#666",
+                "strokeWidth": 1,
+                "fill": "#fff"
+              }
+            },
+            "label": {
+              "position": "right"
+            }
+          },
+          "bottom": {
+            "zIndex": 999999999,
+            "position": "bottom",
+            "attrs": {
+              "circle": {
+                "r": 3,
+                "magnet": true,
+                "stroke": "#666",
+                "strokeWidth": 1,
+                "fill": "#fff"
+              }
+            },
+            "label": {
+              "position": "bottom"
+            }
+          },
+          "left": {
+            "position": "left",
+            "attrs": {
+              "circle": {
+                "r": 3,
+                "magnet": true,
+                "stroke": "#666",
+                "strokeWidth": 1,
+                "fill": "#fff"
+              }
+            }
+          }
+        },
+        "items": [
+          {
+            "id": "top",
+            "group": "top"
+          },
+          {
+            "id": "right",
+            "group": "right",
+            "attrs": {
+              "text": {
+                "text": "是"
+              }
+            }
+          },
+          {
+            "id": "bottom",
+            "group": "bottom",
+            "attrs": {
+              "text": {
+                "text": "否"
+              }
+            }
+          },
+          {
+            "id": "left",
+            "group": "left"
+          }
+        ]
+      },
+      "id": "bbea02e3-2d43-4f64-af8a-4e36e5320593",
+      "zIndex": 9
+    },
+    {
+      "position": {
+        "x": 39,
+        "y": 212
+      },
+      "size": {
+        "width": 80,
+        "height": 40
+      },
+      "shape": "imove-behavior",
+      "data": {
+        "label": "处理",
+        "configSchema": "{\n  \n}",
+        "configData": {},
+        "dependencies": "{\n  \n}",
+        "code": "export default async function(ctx) {\n  \n}"
+      },
+      "ports": {
+        "groups": {
+          "top": {
+            "position": "top",
+            "attrs": {
+              "circle": {
+                "r": 3,
+                "magnet": true,
+                "stroke": "#666",
+                "strokeWidth": 1,
+                "fill": "#fff"
+              }
+            }
+          },
+          "right": {
+            "position": "right",
+            "attrs": {
+              "circle": {
+                "r": 3,
+                "magnet": true,
+                "stroke": "#666",
+                "strokeWidth": 1,
+                "fill": "#fff"
+              }
+            }
+          },
+          "bottom": {
+            "position": "bottom",
+            "attrs": {
+              "circle": {
+                "r": 3,
+                "magnet": true,
+                "stroke": "#666",
+                "strokeWidth": 1,
+                "fill": "#fff"
+              }
+            }
+          },
+          "left": {
+            "position": "left",
+            "attrs": {
+              "circle": {
+                "r": 3,
+                "magnet": true,
+                "stroke": "#666",
+                "strokeWidth": 1,
+                "fill": "#fff"
+              }
+            }
+          }
+        },
+        "items": [
+          {
+            "id": "top",
+            "group": "top"
+          },
+          {
+            "id": "right",
+            "group": "right"
+          },
+          {
+            "id": "bottom",
+            "group": "bottom"
+          },
+          {
+            "id": "left",
+            "group": "left"
+          }
+        ]
+      },
+      "id": "176d7aa1-0236-48a6-9b85-3e6930cb28ee",
+      "zIndex": 10
+    },
+    {
+      "position": {
+        "x": 39,
+        "y": -13
+      },
+      "size": {
+        "width": 80,
+        "height": 40
+      },
+      "shape": "imove-behavior",
+      "data": {
+        "label": "处理",
+        "configSchema": "{\n  \n}",
+        "configData": {},
+        "dependencies": "{\n  \n}",
+        "code": "export default async function(ctx) {\n  \n}"
+      },
+      "ports": {
+        "groups": {
+          "top": {
+            "position": "top",
+            "attrs": {
+              "circle": {
+                "r": 3,
+                "magnet": true,
+                "stroke": "#666",
+                "strokeWidth": 1,
+                "fill": "#fff"
+              }
+            }
+          },
+          "right": {
+            "position": "right",
+            "attrs": {
+              "circle": {
+                "r": 3,
+                "magnet": true,
+                "stroke": "#666",
+                "strokeWidth": 1,
+                "fill": "#fff"
+              }
+            }
+          },
+          "bottom": {
+            "position": "bottom",
+            "attrs": {
+              "circle": {
+                "r": 3,
+                "magnet": true,
+                "stroke": "#666",
+                "strokeWidth": 1,
+                "fill": "#fff"
+              }
+            }
+          },
+          "left": {
+            "position": "left",
+            "attrs": {
+              "circle": {
+                "r": 3,
+                "magnet": true,
+                "stroke": "#666",
+                "strokeWidth": 1,
+                "fill": "#fff"
+              }
+            }
+          }
+        },
+        "items": [
+          {
+            "id": "top",
+            "group": "top"
+          },
+          {
+            "id": "right",
+            "group": "right"
+          },
+          {
+            "id": "bottom",
+            "group": "bottom"
+          },
+          {
+            "id": "left",
+            "group": "left"
+          }
+        ]
+      },
+      "id": "1a1bc36c-a72d-46b8-86d0-94d845de4bc7",
+      "zIndex": 11
+    },
+    {
+      "position": {
+        "x": 80,
+        "y": 430
+      },
+      "size": {
+        "width": 80,
+        "height": 40
+      },
+      "shape": "imove-behavior",
+      "data": {
+        "label": "处理",
+        "configSchema": "{\n  \n}",
+        "configData": {},
+        "dependencies": "{\n  \n}",
+        "code": "export default async function(ctx) {\n  \n}"
+      },
+      "ports": {
+        "groups": {
+          "top": {
+            "position": "top",
+            "attrs": {
+              "circle": {
+                "r": 3,
+                "magnet": true,
+                "stroke": "#666",
+                "strokeWidth": 1,
+                "fill": "#fff"
+              }
+            }
+          },
+          "right": {
+            "position": "right",
+            "attrs": {
+              "circle": {
+                "r": 3,
+                "magnet": true,
+                "stroke": "#666",
+                "strokeWidth": 1,
+                "fill": "#fff"
+              }
+            }
+          },
+          "bottom": {
+            "position": "bottom",
+            "attrs": {
+              "circle": {
+                "r": 3,
+                "magnet": true,
+                "stroke": "#666",
+                "strokeWidth": 1,
+                "fill": "#fff"
+              }
+            }
+          },
+          "left": {
+            "position": "left",
+            "attrs": {
+              "circle": {
+                "r": 3,
+                "magnet": true,
+                "stroke": "#666",
+                "strokeWidth": 1,
+                "fill": "#fff"
+              }
+            }
+          }
+        },
+        "items": [
+          {
+            "id": "top",
+            "group": "top"
+          },
+          {
+            "id": "right",
+            "group": "right"
+          },
+          {
+            "id": "bottom",
+            "group": "bottom"
+          },
+          {
+            "id": "left",
+            "group": "left"
+          }
+        ]
+      },
+      "id": "4d01246e-d119-44c4-867e-25ba3ad0b971",
+      "zIndex": 12
     }
   ]
 }
